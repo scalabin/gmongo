@@ -1,0 +1,42 @@
+apply plugin: 'eclipse'
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+
+group = 'mongodb.client.gmongo'
+version = '1.0.0'
+
+
+repositories {
+	mavenLocal()
+
+	mavenCentral()
+	mavenRepo urls: "http://groovypp.artifactoryonline.com/groovypp/libs-releases-local"
+	mavenRepo urls: "http://morphia.googlecode.com/svn/mavenrepo/"
+}
+
+dependencies {
+	groovy group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.0.1'
+	groovy group: 'org.apache.ivy', name: 'ivy', version: '2.2.0'
+
+	compile group: 'org.slf4j', name:'slf4j-api', version: '1.6.4'
+	compile 'commons-io:commons-io:2.4'
+	
+
+	compile 'org.mongodb:mongo-java-driver:2.9.1'
+	compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.9'
+	compile 'net.sf.json-lib:json-lib:2.4:jdk15'
+	compile ('org.json:json:20090211') { exclude module: 'maven-cobertura-plugin' exclude module:'maven-findbugs-plugin'}
+
+	compile 'dsl.config:gdsl_mapping:1.0.0'
+
+	testCompile group: 'junit', name: 'junit', version: '4.10'
+	logbackVersion = '1.0.1'
+	runtime group: 'ch.qos.logback', name:'logback-classic', version: logbackVersion
+	runtime group: 'ch.qos.logback', name:'logback-core', version: logbackVersion
+
+}
+
+
+
+
